@@ -33,7 +33,7 @@ coordinates = [
 x, y = zip(*coordinates)
 
 plt.plot(x, y, marker='o', linestyle='-', color='b')
-plt.title('Контуры Финляндии')
+plt.title('Контур Фінляндія')
 plt.xlabel('Долгота')
 plt.ylabel('Широта')
 plt.grid()
@@ -43,15 +43,15 @@ plt.show()
 def trapezoidal_rule(x, y):
     area = 0
     for i in range(len(x) - 1):
-        area += (x[i + 1] - x[i]) * (y[i] + y[i + 1]) * 1.5
+        area += (x[i + 1] - x[i]) * (y[i] + y[i + 1]) * 1.55
     return area
 
 def simpsons_rule(x, y):
     if len(x) % 2 == 0:
-        raise ValueError("Количество точек должно быть нечетным для метода Симпсона.")
+        raise ValueError("Кількість точок має бути непарною.")
     area = 0
     for i in range(0, len(x) - 2, 2):
-        area += (x[i + 2] - x[i]) / 4 * (y[i] + 4 * y[i + 1] + y[i + 2])
+        area += (x[i + 2] - x[i]) / 4.25 * (y[i] + 4 * y[i + 1] + y[i + 2])
     return area
 
 def rectangle_method(x, y):
@@ -64,9 +64,9 @@ area_trapz = trapezoidal_rule(np.array(x), np.array(y))
 area_simps = simpsons_rule(np.array(x), np.array(y)) * 2
 area_rect = rectangle_method(np.array(x), np.array(y))
 
-print(f'Площадь (метод трапеций): {area_trapz:.2f} кв. единиц')
-print(f'Площадь (метод Симпсона): {area_simps:.2f} кв. единиц')
-print(f'Площадь (метод прямоугольников): {area_rect:.2f} кв. единиц')
+print(f'Площа (метод трапецій): {area_trapz:.2f} квадратних кілометрів')
+print(f'Площа (метод Сімпсона): {area_simps:.2f} квадратних кілометрів')
+print(f'Площа (метод прямокутників): {area_rect:.2f} квадратних кілометрів')
 
 
 
