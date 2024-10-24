@@ -34,7 +34,7 @@ x, y = zip(*coordinates)
 
 plt.plot(x, y, marker='o', linestyle='-', color='b')
 plt.title('Контур Фінляндія')
-plt.xlabel('Долгота')
+plt.xlabel('Довгота')
 plt.ylabel('Широта')
 plt.grid()
 plt.axis('equal')  
@@ -51,7 +51,7 @@ def simpsons_rule(x, y):
         raise ValueError("Кількість точок має бути непарною.")
     area = 0
     for i in range(0, len(x) - 2, 2):
-        area += (x[i + 2] - x[i]) / 4.25 * (y[i] + 4 * y[i + 1] + y[i + 2])
+        area += (x[i + 2] - x[i]) / 4 * (y[i] + 4 * y[i + 1] + y[i + 2])
     return area
 
 def rectangle_method(x, y):
